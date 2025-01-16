@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Filter, MapPin, Clock, ChevronLeft, ChevronRight } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Filter, MapPin, Clock, ChevronLeft, ChevronRight, Wrench } from 'lucide-react';
 
 type Project = {
   id: number;
@@ -15,6 +15,138 @@ type Project = {
 };
 
 const projects: Project[] = [
+  {
+    id: 10,
+    title: "Modernt badrum med skandinavisk design",
+    description: "Ljust och luftigt badrum med tidlösa materialval",
+    category: "bathroom",
+    images: [
+      "https://i.ibb.co/xjgFpsT/11.jpg",
+      "https://i.ibb.co/cFs57DY/12.jpg"
+    ],
+    details: {
+      location: "Stockholm",
+      duration: "3 veckor",
+      scope: [
+        "Komplett badrumsrenovering",
+        "Skandinavisk design",
+        "Stora format plattor",
+        "Infälld spegel med belysning",
+        "Golvvärme",
+        "Minimalistiska detaljer"
+      ]
+    }
+  },
+  {
+    id: 9,
+    title: "Lyxigt badrum i Södermalm",
+    description: "Stilren och modern badrumsrenovering med industriella inslag",
+    category: "bathroom",
+    images: [
+      "https://i.ibb.co/1LGjRnC/9.jpg",
+      "https://i.ibb.co/dkRR3HH/10.jpg"
+    ],
+    details: {
+      location: "Södermalm",
+      duration: "3 veckor",
+      scope: [
+        "Komplett badrumsrenovering",
+        "Svarta detaljer och armaturer",
+        "Specialdesignad duschvägg",
+        "Industriell stil",
+        "LED-belysning",
+        "Marmormönstrade plattor"
+      ]
+    }
+  },
+  {
+    id: 8,
+    title: "Smart design för litet badrum",
+    description: "Maximalt utnyttjande av minimal yta med smarta lösningar",
+    category: "bathroom",
+    images: [
+      "https://i.ibb.co/2sdW0KM/7.jpg",
+      "https://i.ibb.co/FBQh9hs/8.jpg"
+    ],
+    details: {
+      location: "Stockholm",
+      duration: "2 veckor",
+      scope: [
+        "Optimerad planlösning",
+        "Platsbyggda förvaringslösningar",
+        "Väggmonterad toalett",
+        "Infällda spotlights",
+        "Specialanpassad duschvägg",
+        "Yteffektiva materialval"
+      ]
+    }
+  },
+  {
+    id: 7,
+    title: "Badrumsrenovering i Sundbyberg",
+    description: "Lyxig badrumsrenovering med moderna inslag och tidlös design",
+    category: "bathroom",
+    images: [
+      "https://i.ibb.co/prPmt7M/5.jpg",
+      "https://i.ibb.co/MnZJwqh/6.jpg"
+    ],
+    details: {
+      location: "Sundbyberg",
+      duration: "3 veckor",
+      scope: [
+        "Komplett badrumsrenovering",
+        "Specialdesignad duschvägg",
+        "Exklusiv badrumsinredning",
+        "Golvvärme",
+        "LED-belysning",
+        "Premiumkakel och klinker"
+      ]
+    }
+  },
+  {
+    id: 6,
+    title: "Går inte ens att känna igen före och efter",
+    description: "Total köksförvandling som överträffar alla förväntningar",
+    category: "kitchen",
+    images: [
+      "https://i.ibb.co/kh9k0dg/4.jpg",
+      "https://i.ibb.co/xsrttgG/3.jpg"
+    ],
+    details: {
+      location: "Stockholm",
+      duration: "5 veckor",
+      scope: [
+        "Komplett köksrenovering",
+        "Nya köksskåp och bänkskivor",
+        "Modern köksö",
+        "Integrerade vitvaror",
+        "Specialdesignad belysning",
+        "Premiumfinish på alla ytor"
+      ]
+    }
+  },
+  {
+    id: 5,
+    title: "Köksrenovering i Stockholm",
+    description: "Modern köksrenovering med eleganta detaljer och funktionell design",
+    category: "kitchen",
+    images: [
+      "https://i.ibb.co/Fw1sZG1/1.jpg",
+      "https://i.ibb.co/bH9PR6h/2.jpg"
+    ],
+    details: {
+      location: "Stockholm",
+      duration: "4 veckor",
+      scope: [
+        "Komplett köksrenovering",
+        "Installation av nya vitvaror",
+        "Skräddarsydda köksluckor",
+        "Modern belysning",
+        "Nya elinstallationer",
+        "Högkvalitativa material"
+      ]
+    }
+  },
   {
     id: 4,
     title: "Badrumsrenovering i Stockholm",
@@ -128,27 +260,27 @@ function ImageGallery({ images }: { images: string[] }) {
   };
 
   return (
-    <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
+    <div className="relative aspect-[4/3] overflow-hidden rounded-lg group">
       <img
         src={images[currentIndex]}
         alt={`Bild ${currentIndex + 1}`}
-        className="w-full h-full object-cover"
+        className="w-full h-full object-cover transition-transform duration-500 scale-100 group-hover:scale-100"
       />
       {images.length > 1 && (
         <>
           <button
             onClick={goToPrevious}
-            className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
+            className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors z-10"
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
           <button
             onClick={goToNext}
-            className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
+            className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors z-10"
           >
             <ChevronRight className="w-6 h-6" />
           </button>
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-10">
             {images.map((_, index) => (
               <button
                 key={index}
@@ -167,6 +299,24 @@ function ImageGallery({ images }: { images: string[] }) {
 
 function Projects() {
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [showQuote, setShowQuote] = useState(false);
+
+  useEffect(() => {
+    // Show quote after 1 second
+    const showTimer = setTimeout(() => {
+      setShowQuote(true);
+    }, 1000);
+
+    // Hide quote after 6 seconds
+    const hideTimer = setTimeout(() => {
+      setShowQuote(false);
+    }, 6000);
+
+    return () => {
+      clearTimeout(showTimer);
+      clearTimeout(hideTimer);
+    };
+  }, []);
 
   const filteredProjects = selectedCategory === 'all'
     ? projects
@@ -174,15 +324,42 @@ function Projects() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Animated Quote Popup */}
+      <div className={`fixed top-24 right-6 z-50 transition-all duration-700 ease-in-out transform
+        ${showQuote 
+          ? 'translate-x-0 opacity-100 rotate-0' 
+          : 'translate-x-full opacity-0 rotate-12'}`}
+      >
+        <div className="relative">
+          {/* Speech Bubble */}
+          <div className="bg-white p-6 rounded-2xl shadow-xl max-w-sm relative">
+            <div className="absolute -left-3 top-1/2 -translate-y-1/2 w-4 h-4 
+                          bg-white transform rotate-45"></div>
+            
+            <div className="flex items-center space-x-3 mb-2">
+              <Wrench className="w-6 h-6 text-amber-500 animate-[spin_4s_linear_infinite]" />
+              <p className="text-sm text-gray-500 font-medium">Visdomsord</p>
+            </div>
+            
+            <p className="text-gray-900 font-bold text-lg leading-snug">
+              Om du tycker att en hantverkare är dyr, 
+              <span className="text-amber-500 animate-pulse"> prova en dålig</span> 😉
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* Hero Section */}
-      <div className="relative h-[40vh] bg-gradient-to-br from-blue-600 to-blue-800">
-        <div className="absolute inset-0 bg-black/20" />
+      <div className="relative h-[40vh] bg-cover bg-center" style={{
+        backgroundImage: "url('https://plus.unsplash.com/premium_photo-1708010549623-37eafb8245b0?q=80&w=1932&auto=format&fit=crop')"
+      }}>
+        <div className="absolute inset-0 bg-black/40" />
         <div className="relative h-full container mx-auto px-6 flex items-center">
           <div className="max-w-2xl">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
               Våra Projekt
             </h1>
-            <p className="text-xl text-blue-100">
+            <p className="text-xl text-gray-200">
               Se våra senaste projekt och låt dig inspireras
             </p>
           </div>
@@ -194,7 +371,7 @@ function Projects() {
         {/* Filter Section */}
         <div className="bg-white rounded-2xl shadow-xl p-6 mb-12">
           <div className="flex items-center space-x-3 mb-6">
-            <Filter className="w-5 h-5 text-blue-600" />
+            <Filter className="w-5 h-5 text-amber-500" />
             <h2 className="text-lg font-semibold text-gray-900">Filtrera efter kategori</h2>
           </div>
           <div className="flex flex-wrap gap-3">
@@ -204,7 +381,7 @@ function Projects() {
                 onClick={() => setSelectedCategory(category.id)}
                 className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300
                   ${selectedCategory === category.id
-                    ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/20'
+                    ? 'bg-gradient-to-br from-gray-900 to-gray-800 text-white shadow-lg'
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
               >
                 {category.label}

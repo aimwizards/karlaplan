@@ -4,11 +4,20 @@ import Projects from './pages/Projects';
 import About from './pages/About';
 import Partners from './pages/Partners';
 import Contact from './pages/Contact';
+import { sendQuoteForm } from './utils/api';
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [quoteFormStatus, setQuoteFormStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [quoteFormError, setQuoteFormError] = useState('');
+  const [quoteFormData, setQuoteFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
   const [showServices, setShowServices] = useState(false);
   const [showProjects, setShowProjects] = useState(false);
   const [showAbout, setShowAbout] = useState(false);
@@ -35,6 +44,30 @@ function App() {
     }, 5000);
     return () => clearInterval(timer);
   }, []);
+
+  const handleQuoteSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setQuoteFormStatus('loading');
+    try {
+      await sendQuoteForm(quoteFormData);
+      setQuoteFormStatus('success');
+      setQuoteFormData({ name: '', email: '', phone: '', message: '' });
+      setTimeout(() => {
+        setIsPopupOpen(false);
+        setQuoteFormStatus('idle');
+      }, 2000);
+    } catch (error: any) {
+      setQuoteFormStatus('error');
+      setQuoteFormError(error.message || 'Ett fel uppstod. Försök igen senare.');
+    }
+  };
+
+  const handleQuoteFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setQuoteFormData(prev => ({
+      ...prev,
+      [e.target.id]: e.target.value
+    }));
+  };
 
   return (
     <div className="min-h-screen">
@@ -199,116 +232,70 @@ function App() {
             </div>
 
             <div className="grid md:grid-cols-2 gap-12 mt-12">
-              {/* Bathroom Renovation */}
-              <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow">
-                <div className="flex items-center mb-6">
-                  <ShowerHead className="w-8 h-8 text-blue-500 mr-4" />
-                  <h3 className="text-2xl font-semibold text-gray-900">Badrumsrenovering</h3>
+              {/* Other Services */}
+              <div className="md:col-span-2 grid grid-cols-2 sm:grid-cols-4 gap-4 mb-12">
+                <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 group">
+                  <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center mb-4 group-hover:bg-blue-100 transition-colors">
+                    <Ruler className="w-6 h-6 text-blue-600" />
+                  </div>
+                  <h4 className="font-semibold text-gray-900 text-lg mb-2">Snickerier</h4>
+                  <p className="text-gray-600 text-sm">Gedigen hantverkskunskap med moderna lösningar</p>
                 </div>
-                <p className="text-gray-700">
-                  Vi specialiserar oss på moderna och funktionella badrumsrenoveringar. Med vår expertis 
-                  säkerställer vi att varje projekt uppfyller högsta standard för kvalitet och design, 
-                  alltid anpassat efter kundens önskemål och behov.
-                </p>
-              </div>
 
-              {/* Pipe Replacement */}
-              <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow">
-                <div className="flex items-center mb-6">
-                  <Wrench className="w-8 h-8 text-blue-500 mr-4" />
-                  <h3 className="text-2xl font-semibold text-gray-900">Stambyten</h3>
+                <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 group">
+                  <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center mb-4 group-hover:bg-blue-100 transition-colors">
+                    <Footprints className="w-6 h-6 text-blue-600" />
+                  </div>
+                  <h4 className="font-semibold text-gray-900 text-lg mb-2">Golvläggning</h4>
+                  <p className="text-gray-600 text-sm">Professionell installation av alla typer av golv</p>
                 </div>
-                <p className="text-gray-700">
-                  Vi utför professionella stambyten enligt hyresvärdens och bostadsrättsföreningens 
-                  specifika krav och önskemål. Som ett pålitligt företag garanterar vi att arbetet 
-                  utförs effektivt och med minimal störning för de boende.
-                </p>
-              </div>
-              
-              {/* Services Dropdown */}
-              <div className="md:col-span-2 mt-8">
-                <button
-                  onClick={() => setShowServices(!showServices)}
-                  className="w-full bg-white rounded-xl p-4 flex items-center justify-between hover:bg-gray-50 transition-colors group"
-                >
-                  <span className="font-semibold text-gray-900">Visa fler tjänster</span>
-                  <ChevronDown className={`w-5 h-5 text-gray-500 transition-transform duration-300 ${showServices ? 'rotate-180' : ''}`} />
-                </button>
-                
-                <div className={`grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 transition-all duration-500 ease-in-out overflow-hidden ${
-                  showServices ? 'mt-6 max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
-                }`}>
-                  {/* Carpentry */}
-                  <div className="bg-white/50 rounded-xl p-4 hover:bg-white transition-colors">
-                    <div className="flex items-center space-x-2 mb-2">
-                      <Ruler className="w-5 h-5 text-blue-500" />
-                      <h4 className="font-semibold text-gray-900">Snickerier</h4>
-                    </div>
-                    <p className="text-sm text-gray-600">Kombinerar gedigen hantverkskunskap med moderna tekniska lösningar.</p>
-                  </div>
 
-                  {/* Flooring */}
-                  <div className="bg-white/50 rounded-xl p-4 hover:bg-white transition-colors">
-                    <div className="flex items-center space-x-2 mb-2">
-                      <Footprints className="w-5 h-5 text-blue-500" />
-                      <h4 className="font-semibold text-gray-900">Golvläggning</h4>
-                    </div>
-                    <p className="text-sm text-gray-600">Professionell golvläggning med högkvalitativa material och resultat.</p>
+                <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 group">
+                  <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center mb-4 group-hover:bg-blue-100 transition-colors">
+                    <Blocks className="w-6 h-6 text-blue-600" />
                   </div>
+                  <h4 className="font-semibold text-gray-900 text-lg mb-2">Våtrum & Klinker</h4>
+                  <p className="text-gray-600 text-sm">Specialister på kakel och klinker för våtutrymmen</p>
+                </div>
 
-                  {/* Wetroom & Tiles */}
-                  <div className="bg-white/50 rounded-xl p-4 hover:bg-white transition-colors">
-                    <div className="flex items-center space-x-2 mb-2">
-                      <Blocks className="w-5 h-5 text-blue-500" />
-                      <h4 className="font-semibold text-gray-900">Våtrum & Klinker</h4>
-                    </div>
-                    <p className="text-sm text-gray-600">Experter på golv och klinker för våtutrymmen.</p>
+                <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 group">
+                  <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center mb-4 group-hover:bg-blue-100 transition-colors">
+                    <Paintbrush className="w-6 h-6 text-blue-600" />
                   </div>
+                  <h4 className="font-semibold text-gray-900 text-lg mb-2">Målning</h4>
+                  <p className="text-gray-600 text-sm">Professionell målning med högsta finish</p>
+                </div>
 
-                  {/* Painting */}
-                  <div className="bg-white/50 rounded-xl p-4 hover:bg-white transition-colors">
-                    <div className="flex items-center space-x-2 mb-2">
-                      <Paintbrush className="w-5 h-5 text-blue-500" />
-                      <h4 className="font-semibold text-gray-900">Målning</h4>
-                    </div>
-                    <p className="text-sm text-gray-600">Erfarna målare som levererar högkvalitativt arbete.</p>
+                <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 group">
+                  <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center mb-4 group-hover:bg-blue-100 transition-colors">
+                    <Waves className="w-6 h-6 text-blue-600" />
                   </div>
+                  <h4 className="font-semibold text-gray-900 text-lg mb-2">VVS</h4>
+                  <p className="text-gray-600 text-sm">Komplett VVS-service med nöjd kund garanti</p>
+                </div>
 
-                  {/* Plumbing */}
-                  <div className="bg-white/50 rounded-xl p-4 hover:bg-white transition-colors">
-                    <div className="flex items-center space-x-2 mb-2">
-                      <Waves className="w-5 h-5 text-blue-500" />
-                      <h4 className="font-semibold text-gray-900">VVS</h4>
-                    </div>
-                    <p className="text-sm text-gray-600">Komplett VVS-service med nöjd kund garanti.</p>
+                <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 group">
+                  <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center mb-4 group-hover:bg-blue-100 transition-colors">
+                    <Lightbulb className="w-6 h-6 text-blue-600" />
                   </div>
+                  <h4 className="font-semibold text-gray-900 text-lg mb-2">El</h4>
+                  <p className="text-gray-600 text-sm">Säkra och moderna elinstallationer</p>
+                </div>
 
-                  {/* Electrical */}
-                  <div className="bg-white/50 rounded-xl p-4 hover:bg-white transition-colors">
-                    <div className="flex items-center space-x-2 mb-2">
-                      <Lightbulb className="w-5 h-5 text-blue-500" />
-                      <h4 className="font-semibold text-gray-900">El</h4>
-                    </div>
-                    <p className="text-sm text-gray-600">Professionella elinstallationer och centralbyte.</p>
+                <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 group">
+                  <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center mb-4 group-hover:bg-blue-100 transition-colors">
+                    <Plug className="w-6 h-6 text-blue-600" />
                   </div>
+                  <h4 className="font-semibold text-gray-900 text-lg mb-2">Puts</h4>
+                  <p className="text-gray-600 text-sm">Alla typer av putssystem och renovering</p>
+                </div>
 
-                  {/* Plastering */}
-                  <div className="bg-white/50 rounded-xl p-4 hover:bg-white transition-colors">
-                    <div className="flex items-center space-x-2 mb-2">
-                      <Plug className="w-5 h-5 text-blue-500" />
-                      <h4 className="font-semibold text-gray-900">Puts</h4>
-                    </div>
-                    <p className="text-sm text-gray-600">Alla typer av putssystem för renovering och nyproduktion.</p>
+                <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 group">
+                  <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center mb-4 group-hover:bg-blue-100 transition-colors">
+                    <Construction className="w-6 h-6 text-blue-600" />
                   </div>
-
-                  {/* Casting */}
-                  <div className="bg-white/50 rounded-xl p-4 hover:bg-white transition-colors">
-                    <div className="flex items-center space-x-2 mb-2">
-                      <Construction className="w-5 h-5 text-blue-500" />
-                      <h4 className="font-semibold text-gray-900">Gjutning</h4>
-                    </div>
-                    <p className="text-sm text-gray-600">Gedigen erfarenhet av gjutning och renovering.</p>
-                  </div>
+                  <h4 className="font-semibold text-gray-900 text-lg mb-2">Gjutning</h4>
+                  <p className="text-gray-600 text-sm">Gedigen erfarenhet av gjutning och renovering</p>
                 </div>
               </div>
             </div>
@@ -353,7 +340,7 @@ function App() {
           {/* Guarantees Grid */}
           <div className="flex flex-wrap justify-center items-center gap-4 text-lg">
             <span className="px-6 py-3 bg-white text-gray-900 font-bold rounded-full border-2 border-black hover:border-gray-700 shadow-[0_0_10px_rgba(0,0,0,0.1)] hover:shadow-[0_0_20px_rgba(0,0,0,0.15)] transition-all duration-300">
-              10 års garanti
+              1 års garanti
             </span>
             <span className="px-6 py-3 bg-white text-gray-900 font-bold rounded-full border-2 border-black hover:border-gray-700 shadow-[0_0_10px_rgba(0,0,0,0.1)] hover:shadow-[0_0_20px_rgba(0,0,0,0.15)] transition-all duration-300">
               Ansvarsförsäkring
@@ -477,11 +464,15 @@ function App() {
             <div className="p-8">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">Begär offert</h3>
               
-              <form className="space-y-4">
+              <form className="space-y-4" onSubmit={handleQuoteSubmit}>
                 <div className="relative">
                   <User className="absolute left-3 top-3.5 w-5 h-5 text-gray-400" />
                   <input
                     type="text"
+                    id="name"
+                    value={quoteFormData.name}
+                    onChange={handleQuoteFormChange}
+                    required
                     placeholder="Ditt namn"
                     className="w-full pl-12 pr-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 
                              focus:ring-2 focus:ring-blue-200 outline-none transition-all"
@@ -492,8 +483,12 @@ function App() {
                   <Mail className="absolute left-3 top-3.5 w-5 h-5 text-gray-400" />
                   <input
                     type="email"
+                    id="email"
+                    value={quoteFormData.email}
+                    onChange={handleQuoteFormChange}
                     placeholder="Din e-post"
                     className="w-full pl-12 pr-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 
+                    required
                              focus:ring-2 focus:ring-blue-200 outline-none transition-all"
                   />
                 </div>
@@ -502,25 +497,47 @@ function App() {
                   <Phone className="absolute left-3 top-3.5 w-5 h-5 text-gray-400" />
                   <input
                     type="tel"
+                    id="phone"
+                    value={quoteFormData.phone}
+                    onChange={handleQuoteFormChange}
                     placeholder="Ditt telefonnummer"
                     className="w-full pl-12 pr-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 
+                    required
                              focus:ring-2 focus:ring-blue-200 outline-none transition-all"
                   />
                 </div>
                 
                 <textarea
+                  id="message"
+                  value={quoteFormData.message}
+                  onChange={handleQuoteFormChange}
                   placeholder="Beskriv ditt projekt"
                   rows={4}
+                  required
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 
                            focus:ring-2 focus:ring-blue-200 outline-none transition-all"
                 ></textarea>
                 
+                {quoteFormStatus === 'error' && (
+                  <div className="text-red-600 text-sm">
+                    {quoteFormError}
+                  </div>
+                )}
+
+                {quoteFormStatus === 'success' && (
+                  <div className="text-green-600 text-sm">
+                    Tack för din förfrågan! Vi återkommer så snart som möjligt.
+                  </div>
+                )}
+
                 <button
                   type="submit"
+                  disabled={quoteFormStatus === 'loading'}
                   className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold
-                           hover:bg-blue-700 transition-all duration-300"
+                           hover:bg-blue-700 transition-all duration-300
+                           disabled:opacity-75 disabled:cursor-not-allowed"
                 >
-                  Skicka förfrågan
+                  {quoteFormStatus === 'loading' ? 'Skickar...' : 'Skicka förfrågan'}
                 </button>
               </form>
             </div>
@@ -611,7 +628,7 @@ function App() {
           <div className="min-h-screen">
             <button
               onClick={() => setShowProjects(false)}
-              className="fixed top-6 right-6 text-gray-900 hover:text-gray-700 z-50"
+              className="fixed top-6 right-6 text-white hover:text-gray-200 z-50"
             >
               <X className="w-8 h-8" />
             </button>

@@ -50,17 +50,19 @@ function Partners() {
   return (
     <div className="min-h-screen pt-24 bg-gray-50">
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-br from-blue-600 to-blue-800 py-20">
-        <div className="absolute inset-0 bg-grid-white/[0.2] bg-[size:16px]" />
+      <div className="relative py-20 bg-cover bg-center" style={{
+        backgroundImage: "url('https://images.unsplash.com/photo-1688985596577-57cb8e4144cd?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"
+      }}>
+        <div className="absolute inset-0 bg-black/30" />
         <div className="relative container mx-auto px-6">
           <div className="max-w-2xl mx-auto text-center">
             <div className="flex justify-center mb-6">
-              <Building2 className="w-16 h-16 text-white" />
+              <Building2 className="w-16 h-16 text-white opacity-90" />
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Våra partners
             </h1>
-            <p className="text-xl text-blue-100">
+            <p className="text-xl text-gray-200">
               Vi är stolta över våra samarbetspartners
             </p>
           </div>

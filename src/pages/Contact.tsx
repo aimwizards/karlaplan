@@ -1,18 +1,52 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Clock, MessageSquare, Building } from 'lucide-react';
+import { sendContactForm } from '../utils/api';
 
 function Contact() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    service: '',
+    message: ''
+  });
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('loading');
+    try {
+      await sendContactForm(formData);
+      setStatus('success');
+      // Reset form after successful submission
+      setFormData({ name: '', email: '', phone: '', service: '', message: '' });
+    } catch (error: any) {
+      setStatus('error');
+      setErrorMessage(error.message || 'Ett fel uppstod. Försök igen senare.');
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData(prev => ({
+      ...prev,
+      [e.target.id]: e.target.value
+    }));
+  };
+
   return (
     <div className="min-h-screen pt-24 bg-gray-50">
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-br from-blue-600 to-blue-800 py-20">
-        <div className="absolute inset-0 bg-grid-white/[0.2] bg-[size:16px]" />
+      <div className="relative py-20 bg-cover bg-center" style={{
+        backgroundImage: "url('https://plus.unsplash.com/premium_photo-1707813644825-45b7b7572cfb?q=80&w=1932&auto=format&fit=crop')"
+      }}>
+        <div className="absolute inset-0 bg-black/30" />
         <div className="relative container mx-auto px-6">
           <div className="max-w-2xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Kontakta oss
             </h1>
-            <p className="text-xl text-blue-100">
+            <p className="text-xl text-gray-200">
               Vi finns här för att hjälpa dig med ditt nästa projekt
             </p>
           </div>
@@ -36,14 +70,14 @@ function Contact() {
             <div className="grid gap-8">
               {/* Phone */}
               <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-6 h-6 text-blue-600" />
+                <div className="w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center flex-shrink-0">
+                  <Phone className="w-6 h-6 text-gray-900" />
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-1">Ring oss</h3>
                   <a 
                     href="tel:070-464-38-88" 
-                    className="text-blue-600 hover:text-blue-700 transition-colors"
+                    className="text-gray-900 hover:text-gray-700 transition-colors"
                   >
                     070-464 38 88
                   </a>
@@ -52,14 +86,14 @@ function Contact() {
 
               {/* Email */}
               <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-6 h-6 text-blue-600" />
+                <div className="w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center flex-shrink-0">
+                  <Mail className="w-6 h-6 text-gray-900" />
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-1">Maila oss</h3>
                   <a 
                     href="mailto:info@karlaplanentrepenad.se" 
-                    className="text-blue-600 hover:text-blue-700 transition-colors"
+                    className="text-gray-900 hover:text-gray-700 transition-colors"
                   >
                     info@karlaplanentrepenad.se
                   </a>
@@ -68,8 +102,8 @@ function Contact() {
 
               {/* Address */}
               <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-6 h-6 text-blue-600" />
+                <div className="w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-6 h-6 text-gray-900" />
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-1">Besök oss</h3>
@@ -82,8 +116,8 @@ function Contact() {
 
               {/* Business Hours */}
               <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center flex-shrink-0">
-                  <Clock className="w-6 h-6 text-blue-600" />
+                <div className="w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center flex-shrink-0">
+                  <Clock className="w-6 h-6 text-gray-900" />
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-1">Öppettider</h3>
@@ -105,7 +139,7 @@ function Contact() {
               </p>
             </div>
 
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               {/* Name */}
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
@@ -115,6 +149,9 @@ function Contact() {
                   <input
                     type="text"
                     id="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
                     className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 
                              focus:ring-2 focus:ring-blue-200 outline-none transition-all"
                     placeholder="Ditt namn"
@@ -131,6 +168,9 @@ function Contact() {
                   <input
                     type="email"
                     id="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
                     className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 
                              focus:ring-2 focus:ring-blue-200 outline-none transition-all"
                     placeholder="Din e-post"
@@ -147,6 +187,9 @@ function Contact() {
                   <input
                     type="tel"
                     id="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    required
                     className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 
                              focus:ring-2 focus:ring-blue-200 outline-none transition-all"
                     placeholder="Ditt telefonnummer"
@@ -161,6 +204,8 @@ function Contact() {
                 </label>
                 <select
                   id="service"
+                  value={formData.service}
+                  onChange={handleChange}
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 
                            focus:ring-2 focus:ring-blue-200 outline-none transition-all"
                 >
@@ -179,6 +224,8 @@ function Contact() {
                 </label>
                 <textarea
                   id="message"
+                  value={formData.message}
+                  onChange={handleChange}
                   rows={4}
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 
                            focus:ring-2 focus:ring-blue-200 outline-none transition-all"
@@ -186,13 +233,27 @@ function Contact() {
                 ></textarea>
               </div>
 
+              {status === 'error' && (
+                <div className="text-red-600 text-sm">
+                  {errorMessage}
+                </div>
+              )}
+
+              {status === 'success' && (
+                <div className="text-green-600 text-sm">
+                  Tack för ditt meddelande! Vi återkommer så snart som möjligt.
+                </div>
+              )}
+
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold
-                         hover:bg-blue-700 transition-all duration-300"
+                disabled={status === 'loading'}
+                className={`w-full bg-gradient-to-br from-gray-900 to-gray-800 text-white py-3 rounded-lg font-semibold
+                         hover:from-gray-800 hover:to-gray-700 transition-all duration-300 
+                         ${status === 'loading' ? 'opacity-75 cursor-not-allowed' : ''}`}
               >
-                Skicka meddelande
+                {status === 'loading' ? 'Skickar...' : 'Skicka meddelande'}
               </button>
             </form>
           </div>
