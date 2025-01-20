@@ -4,19 +4,34 @@ import { Building2, Shield, Award } from 'lucide-react';
 function Partners() {
   const partners = [
     {
-      name: 'Bravida',
-      description: 'Bravida arbetar med alla de funktioner som ger fastigheter liv.',
-      logo: 'https://solnabyggprojekt.se/assets/uploads/2019/11/bravida.jpg'
+      name: 'Söderorts VVS & Bygg',
+      description: 'Experter inom VVS och byggnation med fokus på kvalitet och kundnöjdhet.',
+      logo: 'https://i.ibb.co/BBzrqR2/thumbnail-logga1.jpg',
+      website: 'https://vvsochbygg.nu/'
     },
     {
       name: 'Pro Kakel',
       description: 'Pro kakel är specialister på kakel, klinker och design.',
-      logo: 'https://solnabyggprojekt.se/assets/uploads/2019/11/pro-kakel.jpg'
+      logo: 'https://solnabyggprojekt.se/assets/uploads/2019/11/pro-kakel.jpg',
+      website: 'https://prokakel.se/'
     },
     {
-      name: 'Jörgensens Rör',
-      description: 'Jörgensens Rör utför stambyten i flerfamiljshus med kvarboende i Stockholm.',
-      logo: 'https://solnabyggprojekt.se/assets/uploads/2019/11/jorgens-ror.jpg'
+      name: 'Sara Bygger AB',
+      description: 'Professionell byggpartner med fokus på kvalitet och kundservice.',
+      logo: 'https://i.ibb.co/kMf4kP9/thumbnail-base-logo-white-background.png',
+      website: 'https://sarabygger.se/'
+    },
+    {
+      name: 'HRB Service',
+      description: 'Specialister inom service och underhåll av fastigheter.',
+      logo: 'https://i.ibb.co/k0fQYqg/ey-Jid-WNr-ZXQi-Oi-Jzd-GF0a-WMucm-Vjby5z-ZSIs-Imtle-SI6-Imxv-Z29z-Lz-E1-Mj-Y5-Nz-Q1-NDQw-Njlfb281-ZX.webp',
+      website: 'https://hrbgruppen.se/'
+    },
+    {
+      name: 'Recondo',
+      description: 'Experter på renovering och byggnadstjänster.',
+      logo: 'https://i.ibb.co/sQz1Snr/partners.png',
+      website: 'https://www.recondoperfekt.com/'
     }
   ];
 
@@ -72,19 +87,29 @@ function Partners() {
       {/* Partners Section */}
       <section className="py-20">
         <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 auto-rows-fr">
             {partners.map((partner) => (
-              <div key={partner.name} className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
-                <div className="aspect-video relative mb-6">
-                  <img
-                    src={partner.logo}
-                    alt={partner.name}
-                    className="w-full h-full object-contain"
-                  />
+              <a 
+                key={partner.name}
+                href={partner.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block h-full"
+              >
+                <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+                  <div className="aspect-video relative mb-6 flex-shrink-0">
+                    <img
+                      src={partner.logo}
+                      alt={partner.name}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <div className="flex-grow flex flex-col">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">{partner.name}</h3>
+                    <p className="text-gray-600">{partner.description}</p>
+                  </div>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">{partner.name}</h3>
-                <p className="text-gray-600">{partner.description}</p>
-              </div>
+              </a>
             ))}
           </div>
         </div>

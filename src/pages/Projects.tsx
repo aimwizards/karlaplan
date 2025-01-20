@@ -260,11 +260,11 @@ function ImageGallery({ images }: { images: string[] }) {
   };
 
   return (
-    <div className="relative aspect-[4/3] overflow-hidden rounded-lg group">
+    <div className="relative aspect-[16/9] overflow-hidden rounded-lg group cursor-pointer">
       <img
         src={images[currentIndex]}
         alt={`Bild ${currentIndex + 1}`}
-        className="w-full h-full object-cover transition-transform duration-500 scale-100 group-hover:scale-100"
+        className="w-full h-full object-contain bg-gray-100 transition-transform duration-300 group-hover:scale-110"
       />
       {images.length > 1 && (
         <>
@@ -337,13 +337,13 @@ function Projects() {
                           bg-white transform rotate-45"></div>
             
             <div className="flex items-center space-x-3 mb-2">
-              <Wrench className="w-6 h-6 text-amber-500 animate-[spin_4s_linear_infinite]" />
+              <Wrench className="w-6 h-6 text-amber-500" />
               <p className="text-sm text-gray-500 font-medium">Visdomsord</p>
             </div>
             
             <p className="text-gray-900 font-bold text-lg leading-snug">
-              Om du tycker att en hantverkare är dyr, 
-              <span className="text-amber-500 animate-pulse"> prova en dålig</span> 😉
+              Om du tycker att en bra hantverkare är dyr, 
+              <span className="text-amber-500"> prova en dålig</span> 😉
             </p>
           </div>
         </div>
@@ -402,10 +402,6 @@ function Projects() {
                   <div className="flex items-center space-x-1">
                     <MapPin className="w-4 h-4" />
                     <span>{project.details.location}</span>
-                  </div>
-                  <div className="flex items-center space-x-1">
-                    <Clock className="w-4 h-4" />
-                    <span>{project.details.duration}</span>
                   </div>
                 </div>
               </div>
