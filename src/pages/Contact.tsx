@@ -95,7 +95,7 @@ function Contact() {
                     href="mailto:info@karlaplanentrepenad.se" 
                     className="text-gray-900 hover:text-gray-700 transition-colors"
                   >
-                    info@karlaplanentrepenad.se
+                    info@karlaplanentreprenad.se
                   </a>
                 </div>
               </div>
@@ -108,8 +108,8 @@ function Contact() {
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-1">Besök oss</h3>
                   <p className="text-gray-600">
-                    Andersvägen 4<br />
-                    169 69 Solna
+                    Luntmakargatan 92<br />
+                    113 51 Stockholm
                   </p>
                 </div>
               </div>
@@ -122,7 +122,7 @@ function Contact() {
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-1">Öppettider</h3>
                   <p className="text-gray-600">
-                    Måndag - Fredag: 07:00 - 16:00<br />
+                    Måndag - Fredag: 10:00 - 19:00<br />
                     Lördag - Söndag: Stängt
                   </p>
                 </div>
