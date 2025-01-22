@@ -29,7 +29,7 @@ function About() {
               Vår Historia & Vision
             </h2>
             <p className="text-gray-700 mb-6">
-              Sedan starten har AB Solna Byggprojekt drivits av en passion för kvalitet och kundnöjdhet. 
+              Sedan starten har Karlaplan Entreprenad AB drivits av en passion för kvalitet och kundnöjdhet. 
               Vi började som ett litet team av dedikerade hantverkare och har vuxit till att bli en av 
               Stockholms mest respekterade byggföretag, specialiserade på badrumsrenoveringar och stambyten.
             </p>
