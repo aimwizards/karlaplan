@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Filter, MapPin, Clock, ChevronLeft, ChevronRight, Wrench } from 'lucide-react';
+import { Filter, MapPin, ChevronLeft, ChevronRight, Wrench } from 'lucide-react';
 
 type Project = {
   id: number;
@@ -15,6 +15,51 @@ type Project = {
 };
 
 const projects: Project[] = [
+  {
+    id: 4,
+    title: "Badrumsrenovering i Stockholm",
+    description: "Elegant badrumsrenovering med moderna detaljer",
+    category: "bathroom",
+    images: [
+      "https://static.wixstatic.com/media/1076bc_45260fab915e4b2598fe083643fc6df6~mv2.jpg/v1/fill/w_720,h_720,al_c,lg_1,q_85,enc_avif,quality_auto/1076bc_45260fab915e4b2598fe083643fc6df6~mv2.jpg",
+      "https://static.wixstatic.com/media/1076bc_6effb44261e64e6a9f06db90aa77dbe2~mv2.jpg/v1/fill/w_720,h_720,al_c,lg_1,q_85,enc_avif,quality_auto/1076bc_6effb44261e64e6a9f06db90aa77dbe2~mv2.jpg",
+      "https://static.wixstatic.com/media/1076bc_7f99e6e97bac477fbd22998083c7e1b1~mv2.jpg/v1/fill/w_720,h_720,al_c,lg_1,q_85,enc_avif,quality_auto/1076bc_7f99e6e97bac477fbd22998083c7e1b1~mv2.jpg",
+      "https://static.wixstatic.com/media/1076bc_dc2f0fee1b124690bab046425ebf696c~mv2.jpg/v1/fill/w_720,h_720,al_c,lg_1,q_85,enc_avif,quality_auto/1076bc_dc2f0fee1b124690bab046425ebf696c~mv2.jpg"
+    ],
+    details: {
+      location: "Stockholm",
+      duration: "3 veckor",
+      scope: [
+        "Komplett badrumsrenovering",
+        "Installation av ny dusch",
+        "Modern badrumsinredning",
+        "Nya vattenledningar",
+        "Ny belysning",
+        "Högkvalitativa material"
+      ]
+    }
+  },
+  {
+    id: 3,
+    title: "Badrumsrenovering i Solna",
+    description: "Modern badrumsrenovering",
+    category: "bathroom",
+    images: [
+      "https://static.wixstatic.com/media/1076bc_63e1796f7cdc4aad9207ce6493b16078~mv2.jpg/v1/fill/w_720,h_720,al_c,lg_1,q_85,enc_avif,quality_auto/1076bc_63e1796f7cdc4aad9207ce6493b16078~mv2.jpg"
+    ],
+    details: {
+      location: "Solna",
+      duration: "3 veckor",
+      scope: [
+        "Komplett badrumsrenovering",
+        "Installation av ny dusch",
+        "Modern badrumsinredning",
+        "Nya vattenledningar",
+        "Ny belysning",
+        "Högkvalitativa material"
+      ]
+    }
+  },
   {
     id: 10,
     title: "Modernt badrum med skandinavisk design",
@@ -148,51 +193,6 @@ const projects: Project[] = [
     }
   },
   {
-    id: 4,
-    title: "Badrumsrenovering i Stockholm",
-    description: "Elegant badrumsrenovering med moderna detaljer",
-    category: "bathroom",
-    images: [
-      "https://static.wixstatic.com/media/1076bc_45260fab915e4b2598fe083643fc6df6~mv2.jpg/v1/fill/w_720,h_720,al_c,lg_1,q_85,enc_avif,quality_auto/1076bc_45260fab915e4b2598fe083643fc6df6~mv2.jpg",
-      "https://static.wixstatic.com/media/1076bc_6effb44261e64e6a9f06db90aa77dbe2~mv2.jpg/v1/fill/w_720,h_720,al_c,lg_1,q_85,enc_avif,quality_auto/1076bc_6effb44261e64e6a9f06db90aa77dbe2~mv2.jpg",
-      "https://static.wixstatic.com/media/1076bc_7f99e6e97bac477fbd22998083c7e1b1~mv2.jpg/v1/fill/w_720,h_720,al_c,lg_1,q_85,enc_avif,quality_auto/1076bc_7f99e6e97bac477fbd22998083c7e1b1~mv2.jpg",
-      "https://static.wixstatic.com/media/1076bc_dc2f0fee1b124690bab046425ebf696c~mv2.jpg/v1/fill/w_720,h_720,al_c,lg_1,q_85,enc_avif,quality_auto/1076bc_dc2f0fee1b124690bab046425ebf696c~mv2.jpg"
-    ],
-    details: {
-      location: "Stockholm",
-      duration: "3 veckor",
-      scope: [
-        "Komplett badrumsrenovering",
-        "Installation av ny dusch",
-        "Modern badrumsinredning",
-        "Nya vattenledningar",
-        "Ny belysning",
-        "Högkvalitativa material"
-      ]
-    }
-  },
-  {
-    id: 3,
-    title: "Badrumsrenovering i Solna",
-    description: "Modern badrumsrenovering",
-    category: "bathroom",
-    images: [
-      "https://static.wixstatic.com/media/1076bc_63e1796f7cdc4aad9207ce6493b16078~mv2.jpg/v1/fill/w_720,h_720,al_c,lg_1,q_85,enc_avif,quality_auto/1076bc_63e1796f7cdc4aad9207ce6493b16078~mv2.jpg"
-    ],
-    details: {
-      location: "Solna",
-      duration: "3 veckor",
-      scope: [
-        "Komplett badrumsrenovering",
-        "Installation av ny dusch",
-        "Modern badrumsinredning",
-        "Nya vattenledningar",
-        "Ny belysning",
-        "Högkvalitativa material"
-      ]
-    }
-  },
-  {
     id: 2,
     title: "Badrumsrenovering i Östermalm",
     description: "Modern badrumsrenovering med elegant design",
@@ -264,7 +264,7 @@ function ImageGallery({ images }: { images: string[] }) {
       <img
         src={images[currentIndex]}
         alt={`Bild ${currentIndex + 1}`}
-        className="w-full h-full object-cover bg-gray-100 transition-transform duration-300 group-hover:scale-105"
+        className="w-full h-full object-contain bg-gray-100 transition-transform duration-300 group-hover:scale-105"
       />
       {images.length > 1 && (
         <>
