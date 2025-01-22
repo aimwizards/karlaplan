@@ -26,7 +26,7 @@ const projects: Project[] = [
     ],
     details: {
       location: "Stockholm",
-      duration: "3 veckor",
+      duration: "",
       scope: [
         "Komplett badrumsrenovering",
         "Skandinavisk design",
@@ -44,11 +44,11 @@ const projects: Project[] = [
     category: "bathroom",
     images: [
       "https://i.ibb.co/1LGjRnC/9.jpg",
-      "https://i.ibb.co/dkRR3HH/10.jpg"
+      "https://i.ibb.co/FBQh9hs/8.jpg"
     ],
     details: {
       location: "Södermalm",
-      duration: "3 veckor",
+      duration: "",
       scope: [
         "Komplett badrumsrenovering",
         "Svarta detaljer och armaturer",
@@ -70,7 +70,7 @@ const projects: Project[] = [
     ],
     details: {
       location: "Stockholm",
-      duration: "2 veckor",
+      duration: "",
       scope: [
         "Optimerad planlösning",
         "Platsbyggda förvaringslösningar",
@@ -92,7 +92,7 @@ const projects: Project[] = [
     ],
     details: {
       location: "Sundbyberg",
-      duration: "3 veckor",
+      duration: "",
       scope: [
         "Komplett badrumsrenovering",
         "Specialdesignad duschvägg",
@@ -105,7 +105,7 @@ const projects: Project[] = [
   },
   {
     id: 6,
-    title: "Går inte ens att känna igen före och efter",
+    title: "Total köksförvandling",
     description: "Total köksförvandling som överträffar alla förväntningar",
     category: "kitchen",
     images: [
@@ -114,7 +114,7 @@ const projects: Project[] = [
     ],
     details: {
       location: "Stockholm",
-      duration: "5 veckor",
+      duration: "",
       scope: [
         "Komplett köksrenovering",
         "Nya köksskåp och bänkskivor",
@@ -136,7 +136,7 @@ const projects: Project[] = [
     ],
     details: {
       location: "Stockholm",
-      duration: "4 veckor",
+      duration: "",
       scope: [
         "Komplett köksrenovering",
         "Installation av nya vitvaror",
@@ -160,7 +160,7 @@ const projects: Project[] = [
     ],
     details: {
       location: "Stockholm",
-      duration: "3 veckor",
+      duration: "",
       scope: [
         "Komplett badrumsrenovering",
         "Installation av ny dusch",
@@ -181,7 +181,7 @@ const projects: Project[] = [
     ],
     details: {
       location: "Solna",
-      duration: "3 veckor",
+      duration: "",
       scope: [
         "Komplett badrumsrenovering",
         "Installation av ny dusch",
@@ -203,7 +203,7 @@ const projects: Project[] = [
     ],
     details: {
       location: "Östermalm",
-      duration: "3 veckor",
+      duration: "",
       scope: [
         "Komplett badrumsrenovering",
         "Installation av ny dusch",
@@ -227,7 +227,7 @@ const projects: Project[] = [
     ],
     details: {
       location: "Järfälla",
-      duration: "4 veckor",
+      duration: "",
       scope: [
         "Komplett badrumsrenovering",
         "Rivning av befintligt badrum",
