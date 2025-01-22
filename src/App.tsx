@@ -9,6 +9,7 @@ import { sendQuoteForm } from './utils/api';
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [showQuote, setShowQuote] = useState(false);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [quoteFormStatus, setQuoteFormStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [quoteFormError, setQuoteFormError] = useState('');
@@ -36,6 +37,23 @@ function App() {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    // Show quote after 1 second
+    const showTimer = setTimeout(() => {
+      setShowQuote(true);
+    }, 2000);
+
+    // Hide quote after 6 seconds
+    const hideTimer = setTimeout(() => {
+      setShowQuote(false);
+    }, 6000);
+
+    return () => {
+      clearTimeout(showTimer);
+      clearTimeout(hideTimer);
+    };
   }, []);
 
   useEffect(() => {
@@ -71,6 +89,31 @@ function App() {
 
   return (
     <div className="min-h-screen">
+      {/* Animated Quote Popup */}
+      <div className={`fixed top-24 right-6 z-50 transition-all duration-700 ease-in-out transform
+        ${showQuote 
+          ? 'translate-x-0 opacity-100 rotate-0' 
+          : 'translate-x-full opacity-0 rotate-12'}`}
+      >
+        <div className="relative">
+          {/* Speech Bubble */}
+          <div className="bg-white p-6 rounded-2xl shadow-xl max-w-sm relative">
+            <div className="absolute -left-3 top-1/2 -translate-y-1/2 w-4 h-4 
+                          bg-white transform rotate-45"></div>
+            
+            <div className="flex items-center space-x-3 mb-2">
+              <Wrench className="w-6 h-6 text-amber-500" />
+              <p className="text-sm text-gray-500 font-medium">Visdomsord</p>
+            </div>
+            
+            <p className="text-gray-900 font-bold text-lg leading-snug">
+              Om du tycker att en bra hantverkare är dyr, 
+              <span className="text-amber-500"> prova en dålig</span> 😉
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* Header */}
       <header className={`fixed w-full z-50 transition-all duration-300 ${
         isScrolled ? 'bg-black/80 backdrop-blur-md' : 'bg-transparent'
@@ -206,19 +249,7 @@ function App() {
                 
                 <div className="flex items-center space-x-3">
                   <a 
-                    href="https://www.facebook.com/karlaplanentreprenad."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group bg-black/30 backdrop-blur-sm text-white border-2 border-white/20 p-4 rounded-full
-                             hover:bg-black/40 hover:border-white/30 transition-all duration-300"
-                  >
-                    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                    </svg>
-                  </a>
-                  
-                  <a 
-                    href="https://www.instagram.com/karlaplanentreprenad.se/"
+                    href="https://www.instagram.com/karlaplanentreprenad"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group bg-black/30 backdrop-blur-sm text-white border-2 border-white/20 p-4 rounded-full

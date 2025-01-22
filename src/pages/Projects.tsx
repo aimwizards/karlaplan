@@ -260,11 +260,11 @@ function ImageGallery({ images }: { images: string[] }) {
   };
 
   return (
-    <div className="relative aspect-[16/9] overflow-hidden rounded-lg group cursor-pointer">
+    <div className="relative overflow-hidden rounded-lg group cursor-pointer h-[400px]">
       <img
         src={images[currentIndex]}
         alt={`Bild ${currentIndex + 1}`}
-        className="w-full h-full object-contain bg-gray-100 transition-transform duration-300 group-hover:scale-110"
+        className="w-full h-full object-cover bg-gray-100 transition-transform duration-300 group-hover:scale-105"
       />
       {images.length > 1 && (
         <>
@@ -299,24 +299,6 @@ function ImageGallery({ images }: { images: string[] }) {
 
 function Projects() {
   const [selectedCategory, setSelectedCategory] = useState('all');
-  const [showQuote, setShowQuote] = useState(false);
-
-  useEffect(() => {
-    // Show quote after 1 second
-    const showTimer = setTimeout(() => {
-      setShowQuote(true);
-    }, 1000);
-
-    // Hide quote after 6 seconds
-    const hideTimer = setTimeout(() => {
-      setShowQuote(false);
-    }, 6000);
-
-    return () => {
-      clearTimeout(showTimer);
-      clearTimeout(hideTimer);
-    };
-  }, []);
 
   const filteredProjects = selectedCategory === 'all'
     ? projects
@@ -324,31 +306,6 @@ function Projects() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Animated Quote Popup */}
-      <div className={`fixed top-24 right-6 z-50 transition-all duration-700 ease-in-out transform
-        ${showQuote 
-          ? 'translate-x-0 opacity-100 rotate-0' 
-          : 'translate-x-full opacity-0 rotate-12'}`}
-      >
-        <div className="relative">
-          {/* Speech Bubble */}
-          <div className="bg-white p-6 rounded-2xl shadow-xl max-w-sm relative">
-            <div className="absolute -left-3 top-1/2 -translate-y-1/2 w-4 h-4 
-                          bg-white transform rotate-45"></div>
-            
-            <div className="flex items-center space-x-3 mb-2">
-              <Wrench className="w-6 h-6 text-amber-500" />
-              <p className="text-sm text-gray-500 font-medium">Visdomsord</p>
-            </div>
-            
-            <p className="text-gray-900 font-bold text-lg leading-snug">
-              Om du tycker att en bra hantverkare är dyr, 
-              <span className="text-amber-500"> prova en dålig</span> 😉
-            </p>
-          </div>
-        </div>
-      </div>
-
       {/* Hero Section */}
       <div className="relative h-[40vh] bg-cover bg-center" style={{
         backgroundImage: "url('https://plus.unsplash.com/premium_photo-1708010549623-37eafb8245b0?q=80&w=1932&auto=format&fit=crop')"
@@ -391,17 +348,23 @@ function Projects() {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-12">
           {filteredProjects.map(project => (
-            <div key={project.id} className="bg-white rounded-2xl overflow-hidden shadow-lg">
-              <ImageGallery images={project.images} />
-              <div className="p-6">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">{project.title}</h3>
-                <p className="text-gray-600 mb-4">{project.description}</p>
-                <div className="flex items-center space-x-4 text-sm text-gray-500">
-                  <div className="flex items-center space-x-1">
-                    <MapPin className="w-4 h-4" />
-                    <span>{project.details.location}</span>
+            <div key={project.id} className="bg-white rounded-2xl overflow-hidden shadow-lg flex flex-col h-[600px]">
+              <div className="flex-shrink-0">
+                <ImageGallery images={project.images} />
+              </div>
+              <div className="flex-1 p-6 flex flex-col">
+                <div className="flex-1">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2 line-clamp-2">{project.title}</h3>
+                  <p className="text-gray-600 mb-4 line-clamp-2">{project.description}</p>
+                </div>
+                <div className="mt-auto">
+                  <div className="flex items-center space-x-4 text-sm text-gray-500">
+                    <div className="flex items-center space-x-1">
+                      <MapPin className="w-4 h-4" />
+                      <span>{project.details.location}</span>
+                    </div>
                   </div>
                 </div>
               </div>

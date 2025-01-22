@@ -96,17 +96,27 @@ function Partners() {
                 rel="noopener noreferrer"
                 className="block h-full"
               >
-                <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col">
-                  <div className="aspect-video relative mb-6 flex-shrink-0">
-                    <img
-                      src={partner.logo}
-                      alt={partner.name}
-                      className="w-full h-full object-contain"
-                    />
+                <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-[400px] flex flex-col justify-between">
+                  <div>
+                    <div className="h-40 relative mb-6">
+                      <img
+                        src={partner.logo}
+                        alt={partner.name}
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4 line-clamp-1">{partner.name}</h3>
+                    <p className="text-gray-600 line-clamp-3">{partner.description}</p>
                   </div>
-                  <div className="flex-grow flex flex-col">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">{partner.name}</h3>
-                    <p className="text-gray-600">{partner.description}</p>
+                  <div className="mt-6">
+                    <img
+                      src="https://i.ibb.co/Jk3Lp3t/arrow-right.png"
+                      alt="Arrow"
+                      className="w-5 h-5 inline-block mr-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                    />
+                    <span className="text-blue-600 font-medium group-hover:text-blue-700 transition-colors">
+                      Besök hemsida
+                    </span>
                   </div>
                 </div>
               </a>
