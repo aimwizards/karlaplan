@@ -249,7 +249,7 @@ function App() {
                 
                 <div className="flex items-center space-x-3">
                   <a 
-                    href="https://www.instagram.com/karlaplanentreprenad"
+                    href="https://www.instagram.com/karlaplanentreprenad.se/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group bg-black/30 backdrop-blur-sm text-white border-2 border-white/20 p-4 rounded-full
@@ -444,7 +444,7 @@ function App() {
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {/* Instagram Post 1 */}
-            <a href="https://www.instagram.com/karlaplanentreprenad/" 
+            <a href="https://www.instagram.com/karlaplanentreprenad.se/" 
                target="_blank" 
                rel="noopener noreferrer"
                className="group relative aspect-square overflow-hidden bg-gray-100 rounded-xl">
@@ -457,7 +457,7 @@ function App() {
             </a>
 
             {/* Instagram Post 2 */}
-            <a href="https://www.instagram.com/karlaplanentreprenad/"
+            <a href="https://www.instagram.com/karlaplanentreprenad.se/"
                target="_blank"
                rel="noopener noreferrer"
                className="group relative aspect-square overflow-hidden bg-gray-100 rounded-xl">
@@ -470,7 +470,7 @@ function App() {
             </a>
 
             {/* Instagram Post 3 */}
-            <a href="https://www.instagram.com/karlaplanentreprenad/"
+            <a href="https://www.instagram.com/karlaplanentreprenad.se/"
                target="_blank"
                rel="noopener noreferrer"
                className="group relative aspect-square overflow-hidden bg-gray-100 rounded-xl">
@@ -483,7 +483,7 @@ function App() {
             </a>
 
             {/* Instagram Post 4 */}
-            <a href="https://www.instagram.com/karlaplanentreprenad/"
+            <a href="https://www.instagram.com/karlaplanentreprenad.se/"
                target="_blank"
                rel="noopener noreferrer"
                className="group relative aspect-square overflow-hidden bg-gray-100 rounded-xl">
@@ -498,7 +498,7 @@ function App() {
           
           <div className="text-center mt-8">
             <a
-              href="https://www.instagram.com/karlaplanentreprenad/"
+              href="https://www.instagram.com/karlaplanentreprenad.se/"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center space-x-2 text-gray-900 hover:text-gray-700 transition-colors"
