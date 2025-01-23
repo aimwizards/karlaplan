@@ -200,6 +200,29 @@ const projects: Project[] = [
     }
   },
   {
+    id: 15,
+    title: "Badrum med bohemiskt kakel",
+    description: "Ett unikt badrum med karakteristiskt mönstrat golv och moderna detaljer",
+    category: "bathroom",
+    images: [
+      "https://i.postimg.cc/bN2yRpPd/Snapinst-app-121236179-735361757018752-3063197745271137616-n-1080.jpg",
+      "https://i.postimg.cc/L8KHCw4D/Snapinst-app-121267650-2874724546098090-6455711770411880800-n-1080.jpg",
+      "https://i.postimg.cc/0545mrLL/Snapinst-app-121273453-846133282795317-555823588919305909-n-1080.jpg"
+    ],
+    details: {
+      location: "Stockholm",
+      duration: "3 veckor",
+      scope: [
+        "Komplett badrumsrenovering",
+        "Bohemiskt mönstrat golvkakel",
+        "Modern duschvägg",
+        "Specialanpassad förvaring",
+        "Infälld belysning",
+        "Högkvalitativa material"
+      ]
+    }
+  },
+  {
     id: 6,
     title: "Går inte ens att känna igen före och efter",
     description: "Total köksförvandling som överträffar alla förväntningar",
