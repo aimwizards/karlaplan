@@ -133,6 +133,28 @@ const projects: Project[] = [
     }
   },
   {
+    id: 17,
+    title: "Spa-inspirerat lyxbadrum",
+    description: "Ett avkopplande badrum med spa-känsla och exklusiva detaljer",
+    category: "bathroom",
+    images: [
+      "https://i.postimg.cc/Kjqcj8tD/Snapinst-app-53123473-319367298721537-6449321932112678740-n-1080.jpg"
+    ],
+    details: {
+      location: "Stockholm",
+      duration: "4 veckor",
+      scope: [
+        "Komplett badrumsrenovering",
+        "Spa-inspirerad design",
+        "Lyxiga materialval",
+        "Avkopplande belysning",
+        "Golvvärme",
+        "Specialanpassade förvaringslösningar",
+        "Högkvalitativa blandare"
+      ]
+    }
+  },
+  {
     id: 9,
     title: "Lyxigt badrum i Södermalm",
     description: "Stilren och modern badrumsrenovering med industriella inslag",
@@ -285,6 +307,78 @@ const projects: Project[] = [
         "Modern belysning",
         "Nya elinstallationer",
         "Högkvalitativa material"
+      ]
+    }
+  },
+  {
+    id: 18,
+    title: "Klassiskt kök med modern touch",
+    description: "Tidlös köksdesign som kombinerar klassisk elegans med moderna bekvämligheter",
+    category: "kitchen",
+    images: [
+      "https://i.postimg.cc/x10GW0RT/Snapinst-app-38934155-1911957055564366-1682292252656795648-n-1080.jpg",
+      "https://i.postimg.cc/K8J7bdq7/Snapinst-app-39215264-275094733217772-6804134361949011968-n-1080.jpg"
+    ],
+    details: {
+      location: "Stockholm",
+      duration: "6 veckor",
+      scope: [
+        "Komplett köksrenovering",
+        "Klassisk design med moderna inslag",
+        "Skräddarsydda köksluckor",
+        "Integrerade vitvaror",
+        "Specialanpassad belysning",
+        "Högkvalitativa bänkskivor",
+        "Funktionell förvaring"
+      ]
+    }
+  },
+  {
+    id: 20,
+    title: "Modern köksdesign med öppen planlösning",
+    description: "Elegant kök med perfekt balans mellan funktion och design",
+    category: "kitchen",
+    images: [
+      "https://i.postimg.cc/htKSRY60/Snapinst-app-39328442-851634791705154-6789245900767100928-n-1080.jpg",
+      "https://i.postimg.cc/tRVR3WFF/Snapinst-app-40028623-2133177580256479-1797075807693176832-n-1080.jpg"
+    ],
+    details: {
+      location: "Stockholm",
+      duration: "5 veckor",
+      scope: [
+        "Komplett köksrenovering",
+        "Öppen planlösning",
+        "Skräddarsydda köksluckor",
+        "Integrerade vitvaror",
+        "Modern belysningslösning",
+        "Högkvalitativa bänkskivor",
+        "Funktionell förvaring",
+        "Specialanpassad köksö"
+      ]
+    }
+  },
+  {
+    id: 19,
+    title: "Total renovering med fläckfri design",
+    description: "Komplett renovering med fokus på rena linjer och modern elegans",
+    category: "renovation",
+    images: [
+      "https://i.postimg.cc/rs1nNf8h/Snapinst-app-38656302-286011245337270-4306810251706892288-n-1080.jpg",
+      "https://i.postimg.cc/x8DpmwSJ/Snapinst-app-39075494-1092400287585336-5668464280681316352-n-1080.jpg",
+      "https://i.postimg.cc/0QJHb8h1/Snapinst-app-39335196-600271133702747-4487390609773953024-n-1080.jpg"
+    ],
+    details: {
+      location: "Stockholm",
+      duration: "8 veckor",
+      scope: [
+        "Totalrenovering av bostad",
+        "Moderna ytskikt",
+        "Specialanpassad planlösning",
+        "Skräddarsydda snickerier",
+        "Ny elinstallation",
+        "Högkvalitativa material",
+        "Minimalistisk design",
+        "Integrerade förvaringslösningar"
       ]
     }
   },
