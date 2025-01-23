@@ -51,7 +51,8 @@ const projects: Project[] = [
       "https://static.wixstatic.com/media/1076bc_45260fab915e4b2598fe083643fc6df6~mv2.jpg/v1/fill/w_720,h_720,al_c,lg_1,q_85,enc_avif,quality_auto/1076bc_45260fab915e4b2598fe083643fc6df6~mv2.jpg",
       "https://static.wixstatic.com/media/1076bc_6effb44261e64e6a9f06db90aa77dbe2~mv2.jpg/v1/fill/w_720,h_720,al_c,lg_1,q_85,enc_avif,quality_auto/1076bc_6effb44261e64e6a9f06db90aa77dbe2~mv2.jpg",
       "https://static.wixstatic.com/media/1076bc_7f99e6e97bac477fbd22998083c7e1b1~mv2.jpg/v1/fill/w_720,h_720,al_c,lg_1,q_85,enc_avif,quality_auto/1076bc_7f99e6e97bac477fbd22998083c7e1b1~mv2.jpg",
-      "https://static.wixstatic.com/media/1076bc_dc2f0fee1b124690bab046425ebf696c~mv2.jpg/v1/fill/w_720,h_720,al_c,lg_1,q_85,enc_avif,quality_auto/1076bc_dc2f0fee1b124690bab046425ebf696c~mv2.jpg"
+      "https://static.wixstatic.com/media/1076bc_dc2f0fee1b124690bab046425ebf696c~mv2.jpg/v1/fill/w_720,h_720,al_c,lg_1,q_85,enc_avif,quality_auto/1076bc_dc2f0fee1b124690bab046425ebf696c~mv2.jpg",
+      "https://i.ibb.co/dkRR3HH/10.jpg"
     ],
     details: {
       location: "Stockholm",
@@ -116,7 +117,9 @@ const projects: Project[] = [
     category: "bathroom",
     images: [
       "https://i.ibb.co/1LGjRnC/9.jpg",
-      "https://i.ibb.co/dkRR3HH/10.jpg"
+      "https://i.ibb.co/hBXBsGL/Snapinst-app-125910475-655241725169645-7670005700466912155-n-1080.jpg",
+      "https://i.ibb.co/HYBHQCj/Snapinst-app-126338248-290639412245898-7218926971540699177-n-1080.jpg",
+      "https://i.ibb.co/FBQh9hs/8.jpg"
     ],
     details: {
       location: "Södermalm",
@@ -138,7 +141,7 @@ const projects: Project[] = [
     category: "bathroom",
     images: [
       "https://i.ibb.co/2sdW0KM/7.jpg",
-      "https://i.ibb.co/FBQh9hs/8.jpg"
+      
     ],
     details: {
       location: "Stockholm",
