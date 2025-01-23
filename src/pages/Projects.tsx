@@ -89,6 +89,28 @@ const projects: Project[] = [
     }
   },
   {
+    id: 16,
+    title: "Lyxigt badrum med modern elegans",
+    description: "Exklusiv badrumsrenovering med fokus på eleganta detaljer och högkvalitativa material",
+    category: "bathroom",
+    images: [
+      "https://i.postimg.cc/kMZmhzMZ/Snapinst-app-71178839-2594195620624837-2408425663261433426-n-1080.jpg",
+      "https://i.postimg.cc/J09CDDdm/Snapinst-app-72618512-410257592982868-1155780140977035983-n-1080.jpg"
+    ],
+    details: {
+      location: "Stockholm",
+      duration: "4 veckor",
+      scope: [
+        "Komplett badrumsrenovering",
+        "Exklusiva materialval",
+        "Specialdesignad duschvägg",
+        "Infälld belysning",
+        "Golvvärme",
+        "Skräddarsydda förvaringslösningar"
+      ]
+    }
+  },
+  {
     id: 10,
     title: "Modernt badrum med skandinavisk design",
     description: "Ljust och luftigt badrum med tidlösa materialval",
@@ -224,7 +246,7 @@ const projects: Project[] = [
   },
   {
     id: 6,
-    title: "Går inte ens att känna igen före och efter",
+    title: "Total köksförvandling",
     description: "Total köksförvandling som överträffar alla förväntningar",
     category: "kitchen",
     images: [
