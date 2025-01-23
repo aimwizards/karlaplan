@@ -155,6 +155,32 @@ const projects: Project[] = [
     }
   },
   {
+    id: 21,
+    title: "Lyxigt spa-badrum med jacuzzi",
+    description: "Exklusivt badrum med jacuzzi och lyxiga detaljer för ultimat avkoppling",
+    category: "bathroom",
+    images: [
+      "https://i.postimg.cc/DyLdp7Wm/Snapinst-app-39215061-1924595054230087-4131670023770996736-n-1080.jpg",
+      "https://i.postimg.cc/kMkvy2gk/Snapinst-app-39319971-563797927356890-2610524621937573888-n-1080.jpg",
+      "https://i.postimg.cc/2jqxvQrQ/Snapinst-app-39391292-282982835831811-1599148879876456448-n-1080.jpg",
+      "https://i.postimg.cc/B6bXrBMM/Snapinst-app-39009775-231862504155656-6594146607619375104-n-1080.jpg"
+    ],
+    details: {
+      location: "Stockholm",
+      duration: "6 veckor",
+      scope: [
+        "Installation av lyxig jacuzzi",
+        "Komplett badrumsrenovering",
+        "Specialdesignad belysning",
+        "Exklusiva materialval",
+        "Golvvärme",
+        "Skräddarsydda förvaringslösningar",
+        "Högkvalitativa blandare och armaturer",
+        "Spa-inspirerade detaljer"
+      ]
+    }
+  },
+  {
     id: 9,
     title: "Lyxigt badrum i Södermalm",
     description: "Stilren och modern badrumsrenovering med industriella inslag",
