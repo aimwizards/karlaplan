@@ -16,6 +16,33 @@ type Project = {
 
 const projects: Project[] = [
   {
+    id: 11,
+    title: "Lyxigt designbadrum i Stockholm",
+    description: "Exklusiv badrumsrenovering med högsta kvalitet och unika designlösningar",
+    category: "bathroom",
+    images: [
+      "https://i.ibb.co/85fHwdc/Snapinst-app-470599992-18257247409283548-8569755052803332494-n-1080.jpg",
+      "https://i.ibb.co/9cNxfsy/Snapinst-app-470598530-18257247277283548-6845134848514360342-n-1080.jpg",
+      "https://i.ibb.co/R7trb8F/Snapinst-app-470204933-18257247406283548-6473482547720220582-n-1080.jpg",
+      "https://i.ibb.co/XDgjMcS/Snapinst-app-470579755-18257247388283548-4484673828828568301-n-1080.jpg",
+      "https://i.ibb.co/J5N4gW2/Snapinst-app-470803606-18257247283283548-1536684013384807633-n-1080.jpg",
+      "https://i.ibb.co/KKRKHvD/Snapinst-app-470201533-18257247403283548-4848093585440022461-n-1080.jpg",
+      "https://i.ibb.co/Gk5SQy2/Snapinst-app-470538708-18257247610283548-3289726901350430472-n-1080.jpg"
+    ],
+    details: {
+      location: "Stockholm",
+      scope: [
+        "Exklusiv badrumsrenovering",
+        "Specialdesignad duschvägg",
+        "Lyxiga materialval",
+        "Golvvärme",
+        "Modern LED-belysning",
+        "Platsbyggda förvaringslösningar",
+        "Högkvalitativa blandare och armaturer"
+      ]
+    }
+  },
+  {
     id: 4,
     title: "Badrumsrenovering i Stockholm",
     description: "Elegant badrumsrenovering med moderna detaljer",
@@ -149,6 +176,27 @@ const projects: Project[] = [
     }
   },
   {
+    id: 14,
+    title: "Stilfullt badrum i Gamla Stan",
+    description: "Elegant badrumsrenovering som bevarar historisk charm med moderna bekvämligheter",
+    category: "bathroom",
+    images: [
+      "https://i.ibb.co/R27C25g/Snapinst-app-152279566-285059823040933-5657178807744071006-n-1080.jpg"
+    ],
+    details: {
+      location: "Gamla Stan",
+      duration: "4 veckor",
+      scope: [
+        "Komplett badrumsrenovering",
+        "Anpassning till historisk miljö",
+        "Modern komfort",
+        "Specialanpassade lösningar",
+        "Tidstypiska detaljer",
+        "Högkvalitativa material"
+      ]
+    }
+  },
+  {
     id: 6,
     title: "Går inte ens att känna igen före och efter",
     description: "Total köksförvandling som överträffar alla förväntningar",
@@ -236,6 +284,50 @@ const projects: Project[] = [
         "Nya elinstallationer",
         "Modern inredning",
         "Högkvalitativa material"
+      ]
+    }
+  },
+  {
+    id: 12,
+    title: "Totalrenovering av lägenhet",
+    description: "Omfattande renovering med moderna lösningar och elegant finish",
+    category: "renovation",
+    images: [
+      "https://i.ibb.co/p1bpvk7/Snapinst-app-327618208-576004134065031-7382117166105810186-n-1080.jpg",
+      "https://i.ibb.co/1ZWGsHF/Snapinst-app-327673740-896824774850606-7282846438907892941-n-1080.jpg",
+      "https://i.ibb.co/RjSFmPk/Snapinst-app-327615232-879151743293322-249586448231443466-n-1080.jpg"
+    ],
+    details: {
+      location: "Stockholm",
+      scope: [
+        "Totalrenovering av lägenhet",
+        "Nya ytskikt",
+        "Modern planlösning",
+        "Specialanpassade snickerier",
+        "Ny elinstallation",
+        "Nya golv",
+        "Målning och tapetsering"
+      ]
+    }
+  },
+  {
+    id: 13,
+    title: "Badrum med karaktär",
+    description: "Ett unikt badrum där modern design möter personlig stil",
+    category: "bathroom",
+    images: [
+      "https://i.ibb.co/YtjtWB7/Snapinst-app-274333904-1898512350537248-7491584871194648246-n-1080.jpg"
+    ],
+    details: {
+      location: "Stockholm",
+      duration: "3 veckor",
+      scope: [
+        "Komplett badrumsrenovering",
+        "Unika designlösningar",
+        "Specialanpassad inredning",
+        "Modern belysning",
+        "Högkvalitativa material",
+        "Skräddarsydda detaljer"
       ]
     }
   }
