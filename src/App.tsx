@@ -388,22 +388,22 @@ function App() {
           {/* Certifications Grid */}
           <div className="grid grid-cols-3 md:grid-cols-6 gap-8 mb-16">
             <div className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300">
-              <img src="https://solnabyggprojekt.se/assets/uploads/2019/11/certifikat-id06.png" alt="ID06 Certifikat" className="h-12 w-auto mx-auto object-contain" />
+              <img src="https://i.postimg.cc/nhGc69zL/1.png" alt="ID06 Certifikat" className="h-12 w-auto mx-auto object-contain" />
             </div>
             <div className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300">
-              <img src="https://solnabyggprojekt.se/assets/uploads/2019/11/certifikat-uc.png" alt="UC Certifikat" className="h-12 w-auto mx-auto object-contain" />
+              <img src="https://i.postimg.cc/SxhxTfm5/2.png" alt="UC Certifikat" className="h-12 w-auto mx-auto object-contain" />
             </div>
             <div className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300">
-              <img src="https://solnabyggprojekt.se/assets/uploads/2019/11/certifikat-per.png" alt="PER Certifikat" className="h-12 w-auto mx-auto object-contain" />
+              <img src="https://i.postimg.cc/4Nt3QSRV/3.png" alt="PER Certifikat" className="h-12 w-auto mx-auto object-contain" />
             </div>
             <div className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300">
-              <img src="https://solnabyggprojekt.se/assets/uploads/2019/11/gjensidige.jpg" alt="Gjensidige Certifikat" className="h-12 w-auto mx-auto object-contain" />
+              <img src="https://i.postimg.cc/FFwRcQ8h/4.jpg" alt="Gjensidige Certifikat" className="h-12 w-auto mx-auto object-contain" />
             </div>
             <div className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300">
-              <img src="https://solnabyggprojekt.se/assets/uploads/2019/11/certifikat-bkr.png" alt="BKR Certifikat" className="h-12 w-auto mx-auto object-contain" />
+              <img src="https://i.postimg.cc/QNFCHM66/5.png" alt="BKR Certifikat" className="h-12 w-auto mx-auto object-contain" />
             </div>
             <div className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300">
-              <img src="https://solnabyggprojekt.se/assets/uploads/2019/11/certifikat-heta-arbeten.png" alt="Heta Arbeten Certifikat" className="h-12 w-auto mx-auto object-contain" />
+              <img src="https://i.postimg.cc/4yDr3P8T/6.png" alt="Heta Arbeten Certifikat" className="h-12 w-auto mx-auto object-contain" />
             </div>
           </div>
 
