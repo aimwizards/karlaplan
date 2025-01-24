@@ -12,7 +12,7 @@ function Partners() {
     {
       name: 'Pro Kakel',
       description: 'Pro kakel är specialister på kakel, klinker och design.',
-      logo: 'https://solnabyggprojekt.se/assets/uploads/2019/11/pro-kakel.jpg',
+      logo: 'https://i.postimg.cc/7h7WjDm3/pro-kakel.jpg',
       website: 'https://prokakel.se/'
     },
     {
@@ -38,27 +38,27 @@ function Partners() {
   const certificates = [
     {
       name: 'ID06',
-      logo: 'https://solnabyggprojekt.se/assets/uploads/2019/11/certifikat-id06.png'
+      logo: 'https://i.postimg.cc/nhGc69zL/1.png'
     },
     {
       name: 'UC',
-      logo: 'https://solnabyggprojekt.se/assets/uploads/2019/11/certifikat-uc.png'
+      logo: 'https://i.postimg.cc/SxhxTfm5/2.png'
     },
     {
       name: 'PER',
-      logo: 'https://solnabyggprojekt.se/assets/uploads/2019/11/certifikat-per.png'
+      logo: 'https://i.postimg.cc/4Nt3QSRV/3.png'
     },
     {
       name: 'Gjensidige',
-      logo: 'https://solnabyggprojekt.se/assets/uploads/2019/11/gjensidige.jpg'
+      logo: 'https://i.postimg.cc/FFwRcQ8h/4.jpg'
     },
     {
       name: 'BKR',
-      logo: 'https://solnabyggprojekt.se/assets/uploads/2019/11/certifikat-bkr.png'
+      logo: 'https://i.postimg.cc/QNFCHM66/5.png'
     },
     {
       name: 'Heta Arbeten',
-      logo: 'https://solnabyggprojekt.se/assets/uploads/2019/11/certifikat-heta-arbeten.png'
+      logo: 'https://i.postimg.cc/4yDr3P8T/6.png'
     }
   ];
 
