@@ -1,6 +1,6 @@
 import emailjs from '@emailjs/browser';
 
-emailjs.init('2oS8lBCg8rhhiZcWx');
+emailjs.init('n2zQNvwgL2bmpT5Nq');
 
 interface FormData {
   name: string;
@@ -13,15 +13,17 @@ interface FormData {
 export const sendContactForm = async (formData: FormData) => {
   try {
     const response = await emailjs.send(
-      'service_orwow1r',
-      'template_vesv4bk',
+      'service_0z8721p',
+      'template_hspe87r',
       {
+        to_email: 'info@karlaplanentreprenad.se',
         from_name: formData.name,
         from_email: formData.email,
         phone: formData.phone,
         service: formData.service || 'Ej vald',
         message: formData.message,
-        reply_to: formData.email
+        reply_to: formData.email,
+        form_type: 'Kontaktformulär'
       }
     );
     
@@ -35,15 +37,16 @@ export const sendContactForm = async (formData: FormData) => {
 export const sendQuoteForm = async (formData: FormData) => {
   try {
     const response = await emailjs.send(
-      'service_orwow1r',
-      'template_l9w9268',
+      'service_0z8721p',
+      'template_b8fvjze',
       {
+        to_email: 'info@karlaplanentreprenad.se',
         from_name: formData.name,
         from_email: formData.email,
         phone: formData.phone,
-        service: formData.service || 'Ej vald',
         message: formData.message,
-        reply_to: formData.email
+        reply_to: formData.email,
+        form_type: 'Gratis Offert'
       }
     );
     return { success: true, response };
