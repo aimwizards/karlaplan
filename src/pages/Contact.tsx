@@ -95,7 +95,7 @@ function Contact() {
                     href="mailto:info@karlaplanentrepenad.se" 
                     className="text-gray-900 hover:text-gray-700 transition-colors"
                   >
-                    info@karlaplanentrepenad.se
+                    info@karlaplanentreprenad.se
                   </a>
                 </div>
               </div>
