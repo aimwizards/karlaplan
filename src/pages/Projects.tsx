@@ -16,6 +16,98 @@ type Project = {
 
 const projects: Project[] = [
   {
+    id: 24,
+    title: "Modernt badrum med marmorkänsla",
+    description: "Elegant badrumsrenovering med lyxiga materialval och tidlös design",
+    category: "bathroom",
+    images: [
+      "https://i.postimg.cc/yNsJzg0V/1.jpg",
+      "https://i.postimg.cc/PfR88qn4/2.jpg"
+    ],
+    details: {
+      location: "Stockholm",
+      duration: "3 veckor",
+      scope: [
+        "Komplett badrumsrenovering",
+        "Marmormönstrade plattor",
+        "Modern duschvägg",
+        "Specialdesignad belysning",
+        "Golvvärme",
+        "Högkvalitativa blandare"
+      ]
+    }
+  },
+  {
+    id: 23,
+    title: "Minimalistiskt badrum i grått",
+    description: "Stilrent badrum med fokus på rena linjer och modern enkelhet",
+    category: "bathroom",
+    images: [
+      "https://i.postimg.cc/ht9Jwbzy/Snapinst-app-482269002-18266189158283548-5826267880162589072-n-1080.jpg"
+    ],
+    details: {
+      location: "Stockholm",
+      duration: "3 veckor",
+      scope: [
+        "Komplett badrumsrenovering",
+        "Grå färgskala",
+        "Minimalistisk design",
+        "Modern duschvägg",
+        "Infälld belysning",
+        "Platsbyggd förvaring"
+      ]
+    }
+  },
+  {
+    id: 22,
+    title: "Lyxigt badrum med dubbla handfat",
+    description: "Exklusivt badrum med generösa ytor och högsta kvalitet på material",
+    category: "bathroom",
+    images: [
+      "https://i.postimg.cc/Sx02DtsY/5.jpg",
+      "https://i.postimg.cc/sDGGPRVR/6.jpg",
+      "https://i.postimg.cc/3NV4MtF6/7.jpg",
+      "https://i.postimg.cc/d3LkSbrr/8.jpg",
+      "https://i.postimg.cc/Pxf81pq6/9.jpg",
+      "https://i.postimg.cc/G2MTKL8b/10.jpg"
+    ],
+    details: {
+      location: "Stockholm",
+      duration: "4 veckor",
+      scope: [
+        "Komplett badrumsrenovering",
+        "Dubbla handfat",
+        "Specialdesignad duschvägg",
+        "Lyxiga materialval",
+        "Modern LED-belysning",
+        "Golvvärme",
+        "Skräddarsydda förvaringslösningar"
+      ]
+    }
+  },
+  {
+    id: 25,
+    title: "Modernt badrum med svarta detaljer",
+    description: "Elegant badrumsrenovering med kontrasterande färger och moderna inslag",
+    category: "bathroom",
+    images: [
+      "https://i.postimg.cc/7ZjgDxwB/mm.jpg"
+    ],
+    details: {
+      location: "Stockholm",
+      duration: "3 veckor",
+      scope: [
+        "Komplett badrumsrenovering",
+        "Svarta designdetaljer",
+        "Modern duschvägg",
+        "Specialanpassad belysning",
+        "Golvvärme",
+        "Högkvalitativa material",
+        "Minimalistisk design"
+      ]
+    }
+  },
+  {
     id: 11,
     title: "Lyxigt designbadrum i Stockholm",
     description: "Exklusiv badrumsrenovering med högsta kvalitet och unika designlösningar",
